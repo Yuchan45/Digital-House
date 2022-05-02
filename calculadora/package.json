@@ -1,0 +1,11 @@
+{
+  "name": "ej-clase-04-calculadora",
+  "version": "1.0.0",
+  "description": "Calculadora",
+  "main": "calculadora.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yuchan",
+  "license": "ISC"
+}

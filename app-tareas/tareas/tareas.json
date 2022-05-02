@@ -1,0 +1,22 @@
+[
+    {
+        "titulo": "Repasar JS",
+        "estado": "terminada"
+    },
+    {
+        "titulo": "Armar app de tareas",
+        "estado": "en progreso"
+    },
+    {
+        "titulo": "Break",
+        "estado": "pendiente"
+    },
+    {
+        "titulo": "Practicar importar mas modulos",
+        "estado": "en progreso"
+    },
+    {
+        "titulo": "Probar cosas con los objetos",
+        "estado": "en progreso"
+    }
+]

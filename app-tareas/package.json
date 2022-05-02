@@ -1,0 +1,11 @@
+{
+  "name": "pre-clase-05-app-notas",
+  "version": "1.0.0",
+  "description": "Pre clase - App notas",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yuchan",
+  "license": "ISC"
+}
