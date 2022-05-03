@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require('chalk');
 
 let objetoTareas = {
     archivo: 'tareas.json',
@@ -8,9 +9,9 @@ let objetoTareas = {
         return arrayTareas;
     },
     mostrarTareas: function(array) {
-        console.log("\nListado de tareas\n---------------------");
+        console.log(chalk.bold("\nListado de tareas\n---------------------"));
         for (let i=0; i<array.length; i++){
-            console.log(i+1 + ". " + array[i].titulo + " - " + array[i].estado);
+            console.log(i+1 + ". " + chalk.bold(array[i].titulo) + " - " + chalk.green.italic(array[i].estado));
         }
         console.log("\n\n");
 
@@ -22,11 +23,11 @@ let objetoTareas = {
                 break;
 
             case undefined:
-                console.log("Atención - Tienes que pasar una acción.\nLas acciones disponibles son: listar\n");
+                console.log(chalk.red("Atención - Tienes que pasar una acción.\nLas acciones disponibles son: listar\n"));
                 break;
 
             default:
-                console.log("No entiendo qué quieres hacer.\nLas acciones disponibles son: listar\n");
+                console.log(chalk.red("No entiendo qué quieres hacer.\nLas acciones disponibles son: listar\n"));
         } 
     }
 
