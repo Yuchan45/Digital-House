@@ -1,8 +1,15 @@
 const chalk = require('chalk');
 
+function atajarArgsConsola(array){
+    /*  Recibe el array resultante del process.argvs, y devuelve un array de como maximo 3 posiciones. */
+    let [arg0, arg1, arg2, ...arg3] = array;
+    return [arg0, arg1, arg2, arg3.join(" ")];
+}
 
-function menu(objTareas) {
-    switch(process.argv[2]){
+
+function menu(objTareas, argumentos) {
+    /* Recibe un objeto del tipo tarea y un array con los argumentos atajados. Realiza las diferentes funcionalidades solicitadas dependiendo del argumento recidido por consola. */
+    switch(argumentos[2]){
         case "listar":
             let arrayTareas = objTareas.leerArchivo(objTareas.archivo);
             objTareas.mostrarTareas(arrayTareas);
@@ -13,13 +20,12 @@ function menu(objTareas) {
             break;
 
         case "crear":
-            if (process.argv[3] == undefined) {
+            if (argumentos[3] == '') {
                 console.log(chalk.red("*Atención - Debes ingresar el nombre de la nueva tarea. (ej: node app.js crear 'Nueva tarea')\n"));
                 break;
             }
-            // Ver como hacer para poder recibir todos los argumentos siguientes al 3 como 1 solo argumento.
             let nuevaTarea = {
-                titulo: process.argv[3],
+                titulo: argumentos[3],
                 estado: "Pendiente"
             }
             objTareas.guardarTarea(nuevaTarea);
@@ -27,11 +33,11 @@ function menu(objTareas) {
             break;
 
         case "filtrar":
-            if (process.argv[3] == undefined) {
+            if (argumentos[3] == '') {
                 console.log(chalk.red("*Atención - Debes ingresar el estado por el que deseas filtrar. (ej: node app.js filtrar 'Pendiente')\n"));
                 break;
             }
-            let estado = process.argv[3];
+            let estado = argumentos[3];
             objTareas.filtrarPorEstado(estado);
             break;
 
@@ -41,11 +47,10 @@ function menu(objTareas) {
 
 }
 
-
-
 function main(){
     const objTareas = require('./tareas');
-    menu(objTareas);
+    let arrayArgumentos = atajarArgsConsola(process.argv);
+    menu(objTareas, arrayArgumentos);
 }
 
 main();
