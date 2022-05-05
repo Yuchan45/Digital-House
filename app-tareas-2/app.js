@@ -16,7 +16,7 @@ function menu(objTareas, argumentos) {
             break;
 
         case undefined:
-            console.log(chalk.red("*Atención - Tienes que pasar una acción.\nLas acciones disponibles son: listar\n"));
+            console.log(chalk.red("*Atención - Tienes que pasar una acción.\nLas acciones disponibles son: listar, crear y filtrar.\n"));
             break;
 
         case "crear":
